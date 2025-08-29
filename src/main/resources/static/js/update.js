@@ -1,4 +1,4 @@
-const apiUrl = "http://localhost:8080/api/book";
+const apiUrl = "https://lms-java-ejbr.onrender.com/api/book";
 
 async function updateBook() {
   const id = document.getElementById("id").value;
