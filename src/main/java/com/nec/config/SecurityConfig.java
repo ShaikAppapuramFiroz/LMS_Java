@@ -11,18 +11,20 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-            .csrf().disable()
+            .csrf(csrf -> csrf.disable())
             .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/", "/login", "/signup", "/css/**", "/js/**", "/images/**").permitAll() // allow public
+                .requestMatchers("/", "/login", "/signup", "/css/**", "/js/**", "/images/**").permitAll()
                 .anyRequest().authenticated()
             )
             .formLogin(form -> form
-                .loginPage("/login")      // custom login page
-                .defaultSuccessUrl("/", true) // redirect after successful login
+                .loginPage("/login") // custom login page
+                .loginProcessingUrl("/perform_login") // Spring handles POST /perform_login
+                .defaultSuccessUrl("/", true)
+                .failureUrl("/login?error=true")
                 .permitAll()
             )
             .oauth2Login(oauth -> oauth
-                .loginPage("/login")      // same login page for Google/GitHub
+                .loginPage("/login")
                 .defaultSuccessUrl("/", true)
             )
             .logout(logout -> logout
