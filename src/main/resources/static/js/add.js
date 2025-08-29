@@ -1,4 +1,4 @@
-const apiUrl="http://localhost:8080/api/book";
+const apiUrl="https://lms-java-ejbr.onrender.com/api/book";
 
 document.getElementById("add-form").addEventListener("submit",async(e)=>{
 	e.preventDefault();
