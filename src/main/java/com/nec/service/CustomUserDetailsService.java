@@ -23,6 +23,6 @@ public class CustomUserDetailsService implements UserDetailsService {
                 .email(user.getEmail())
                 .password(user.getPassword())
                 .role(user.getRole())
-                .buildUserDetails();
+                .toUserDetails();
     }
 }
