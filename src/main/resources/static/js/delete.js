@@ -1,6 +1,6 @@
 // File: js/delete.js
 
-const apiUrl = "http://localhost:8080/api/book";
+const apiUrl = "https://lms-java-ejbr.onrender.com/api/book";
 
 async function deleteBook() {
   const id = document.getElementById("delete-id").value;
