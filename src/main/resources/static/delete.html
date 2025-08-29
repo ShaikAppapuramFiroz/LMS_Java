@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Delete Book</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, rgba(255,255,255,0.05), rgba(255,255,255,0.05)),
+        url('images/bg.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
+    }
+
+    nav {
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 10px 20px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      position: sticky;
+      top: 0;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      padding: 8px 16px;
+      border-radius: 8px;
+      transition: background 0.3s ease;
+    }
+
+    nav a:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    h1 {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .container {
+      max-width: 500px;
+      margin: 40px auto;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(10px);
+      animation: fadeIn 0.8s ease;
+    }
+
+    input, button {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+    }
+
+    button {
+      background-color: #dc3545;
+      color: white;
+      font-weight: bold;
+      transition: background 0.3s ease;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #b02a37;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="addbook.html">Add Book</a>
+    <a href="viewallbooks.html">View All</a>
+    <a href="viewbookbyid.html">View By ID</a>
+    <a href="update.html">Update</a>
+    <a href="delete.html">Delete</a>
+  </nav>
+
+  <h1>Delete Book By ID</h1>
+
+  <div class="container">
+    <input type="number" id="delete-id" placeholder="Enter Book ID" />
+    <button onclick="deleteBook()">Delete Book</button>
+  </div>
+
+  <script src="js/delete.js"></script>
+</body>
+</html>
+
+
+
+
+<!--<!DOCTYPE html>
+<html>
+	<head>
+		<title>delete-book</title>
+		<link rel="stylesheet" href="css/style.css">
+	</head>
+	<body>
+		<nav>
+		    <a href="index.html">Home</a>
+		    <a href="addbook.html">Add Book</a>
+		    <a href="viewallbooks.html">View All</a>
+		    <a href="viewbookbyid.html">View By ID</a>
+		    <a href="update.html">Update</a>
+		    <a href="delete.html">Delete</a>
+		  </nav>
+		  
+		<h1>Delete Book By Id</h1>
+		<input type="number" id="delete-id" placeholder="Enter Book Id" />
+		<button onclick="deleteBook()">DeleteBook</button>
+		
+	<script src="js/delete.js"></script>
+	</body>
+</html>-->

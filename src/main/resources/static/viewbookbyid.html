@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>View Book By ID</title>
+  <style>
+    /* Global Styles */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, rgba(255,255,255,0.05), rgba(255,255,255,0.05)),
+        url('images/bg.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
+    }
+
+    nav {
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 10px 20px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      position: sticky;
+      top: 0;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      padding: 8px 16px;
+      border-radius: 8px;
+      transition: background 0.3s ease;
+    }
+
+    nav a:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    h1 {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .container {
+      max-width: 500px;
+      margin: 40px auto;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(10px);
+      animation: fadeIn 0.8s ease;
+    }
+
+    input[type="number"], button {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+    }
+
+    button {
+      background-color: #28a745;
+      color: white;
+      font-weight: bold;
+      transition: background 0.3s ease;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #1f7e37;
+    }
+
+    #result {
+      margin-top: 20px;
+      background: rgba(0, 0, 0, 0.5);
+      padding: 15px;
+      border-radius: 12px;
+      animation: fadeIn 0.6s ease;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="addbook.html">Add Book</a>
+    <a href="viewallbooks.html">View All</a>
+    <a href="viewbookbyid.html">View By ID</a>
+    <a href="update.html">Update</a>
+    <a href="delete.html">Delete</a>
+  </nav>
+
+  <h1>View Book By ID</h1>
+
+  <div class="container">
+    <input type="number" id="search-id" placeholder="Enter Book Id" />
+    <button onclick="findBook()">Find</button>
+    <div id="result"></div>
+  </div>
+
+  <script src="js/view- byid.js"></script>
+</body>
+</html>
+
+
+
+
+<!--<!DOCTYPE html>
+<html>
+	<head>
+		<title>view-book-by-id</title>
+		<link rel="stylesheet" href="css/style.css">
+	</head>
+	<body>
+		<nav>
+		    <a href="index.html">Home</a>
+		    <a href="addbook.html">Add Book</a>
+		    <a href="viewallbooks.html">View All</a>
+		    <a href="viewbookbyid.html">View By ID</a>
+		    <a href="update.html">Update</a>
+		    <a href="delete.html">Delete</a>
+		  </nav>
+		
+		<h1>View Book By BookId</h1>
+		
+		<input type="number" id="search-id" placeholder="Enter Book Id" />
+		<button onclick="findBook()">Find</button>
+		<div id="result"></div>
+		
+		<script src="js/view- byid.js"></script>
+	</body>
+</html>-->

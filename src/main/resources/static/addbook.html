@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Book</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            color: #fff;
+            min-height: 100vh;
+        }
+
+        nav {
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 15px 20px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 8px;
+            transition: background 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 2em;
+            text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 40px auto;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+            backdrop-filter: blur(10px);
+            animation: fadeIn 0.8s ease;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        input[type="text"], input[type="submit"], input[type="checkbox"] {
+            padding: 12px;
+            margin-bottom: 15px;
+            border-radius: 10px;
+            border: none;
+            font-size: 16px;
+        }
+
+        input[type="text"] {
+            background-color: rgba(255,255,255,0.2);
+            color: #fff;
+        }
+
+        input[type="text"]::placeholder {
+            color: #eee;
+        }
+
+        label {
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+
+        input[type="submit"] {
+            background-color: #ff6a00;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #ff4500;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="addbook.html">Add Book</a>
+        <a href="viewallbooks.html">View All</a>
+        <a href="viewbookbyid.html">View By ID</a>
+        <a href="update.html">Update</a>
+        <a href="delete.html">Delete</a>
+    </nav>
+
+    <h1>Add Book</h1>
+
+    <div class="container">
+        <form id="add-form">
+            <input type="text" id="title" placeholder="Enter title" required />
+            <input type="text" id="author" placeholder="Enter author" required />
+            <input type="text" id="category" placeholder="Enter category" required />
+            <label>
+                <input type="checkbox" id="available" checked /> Available
+            </label>
+            <input type="submit" value="Add Book" />
+        </form>
+    </div>
+
+    <script>
+        const apiUrl = "http://localhost:8085/api/book";
+
+        document.getElementById("add-form").addEventListener("submit", async (e) => {
+            e.preventDefault();
+
+            const title = document.getElementById("title").value;
+            const author = document.getElementById("author").value;
+            const category = document.getElementById("category").value;
+            const available = document.getElementById("available").checked;
+
+            const book = { title, author, category, available };
+
+            try {
+                const res = await fetch(apiUrl, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(book)
+                });
+
+                if (res.ok) {
+                    alert("Book added successfully!");
+                    e.target.reset();
+                } else {
+                    const error = await res.text();
+                    alert("Failed to add book: " + error);
+                }
+            } catch (err) {
+                console.error(err);
+                alert("Error adding book!");
+            }
+        });
+    </script>
+
+</body>
+</html>

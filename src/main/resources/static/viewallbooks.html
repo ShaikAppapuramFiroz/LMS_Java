@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>View All Books</title>
+  <style>
+    /* Global Styles */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, rgba(255,255,255,0.1), rgba(255,255,255,0.1)),
+        url('images/bg.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
+    }
+
+    h1 {
+      text-align: center;
+      margin-top: 20px;
+      color: #fff;
+    }
+
+    nav {
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 10px 20px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      position: sticky;
+      top: 0;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      padding: 8px 16px;
+      border-radius: 8px;
+      transition: background 0.3s ease;
+    }
+
+    nav a:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    /* Cards Grid */
+    #book-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 50px;
+      padding: 30px;
+      list-style: none;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+      padding: 20px;
+      color: black;
+      box-shadow: 0 4px 30px rgb(0, 0, 0);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      animation: fadeInUp 0.5s ease forwards;
+      opacity: 0;
+	  font-size: 2em;
+	  text-align: center;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 40px rgba(0, 0, 0, 0.4);
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="addbook.html">Add Book</a>
+    <a href="viewallbooks.html">View All</a>
+    <a href="viewbookbyid.html">View By ID</a>
+    <a href="update.html">Update</a>
+    <a href="delete.html">Delete</a>
+  </nav>
+
+  <h1>View All Books</h1>
+
+  <ul id="book-list"></ul>
+
+  <script src="js/view-all.js"></script>
+</body>
+</html>
+
+
+
+<!--<!DOCTYPE html>
+<html>
+	<head>
+		<title>view-all-books</title>
+		<link rel="stylesheet" href="css/style.css">
+	</head>
+	<body>
+		<nav>
+		    <a href="index.html">Home</a>
+		    <a href="addbook.html">Add Book</a>
+		    <a href="viewallbooks.html">View All</a>
+		    <a href="viewbookbyid.html">View By ID</a>
+		    <a href="update.html">Update</a>
+		    <a href="delete.html">Delete</a>
+		  </nav>
+		
+		<h1>View All Books</h1>
+		
+		<ul id="book-list"></ul>
+		
+		<script src="js/view-all.js"></script>
+	</body>
+</html>-->
