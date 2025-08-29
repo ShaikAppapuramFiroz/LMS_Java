@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head></head>
+<body>
+    <nav>
+        <h1>LMS</h1>
+        <div class="right">
+            <span th:if="${#authentication.principal != null}">
+                <img th:src="${#authentication.principal.attributes['picture']}" 
+                     alt="Profile" class="avatar" style="width:40px;height:40px;border-radius:50%;">
+                <span th:text="${#authentication.principal.attributes['name']}"></span>
+                <a href="/logout">Logout</a>
+            </span>
+            <span th:if="${#authentication.principal == null}">
+                <a href="/login">Login</a>
+            </span>
+        </div>
+    </nav>
+</body>
+</html>
+
