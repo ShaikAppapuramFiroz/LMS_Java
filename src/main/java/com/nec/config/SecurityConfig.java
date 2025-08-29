@@ -2,7 +2,6 @@ package com.nec.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.web.SecurityFilterChain;
 
@@ -12,16 +11,19 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
+            .csrf().disable()
             .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/", "/login", "/css/**", "/js/**", "/images/**").permitAll()
+                .requestMatchers("/", "/login", "/signup", "/css/**", "/js/**", "/images/**").permitAll() // allow public
                 .anyRequest().authenticated()
             )
             .formLogin(form -> form
-                .loginPage("/login")  // 👈 tell Spring to use your login.html
+                .loginPage("/login")      // custom login page
+                .defaultSuccessUrl("/", true) // redirect after successful login
                 .permitAll()
             )
             .oauth2Login(oauth -> oauth
-                .loginPage("/login")  // 👈 same for Google/GitHub
+                .loginPage("/login")      // same login page for Google/GitHub
+                .defaultSuccessUrl("/", true)
             )
             .logout(logout -> logout
                 .logoutSuccessUrl("/login?logout")
