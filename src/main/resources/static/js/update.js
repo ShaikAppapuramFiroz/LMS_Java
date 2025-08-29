@@ -1,4 +1,4 @@
-const apiUrl = "http://localhost:8085/api/book";
+const apiUrl = "http://localhost:8080/api/book";
 
 async function updateBook() {
   const id = document.getElementById("id").value;
