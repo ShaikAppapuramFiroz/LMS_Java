@@ -1,6 +1,6 @@
 // File: js/viewbyid.js
 
-const apiUrl = "http://localhost:8080/api/book";
+const apiUrl = "https://lms-java-ejbr.onrender.com/api/book";
 
 async function findBook() {
   const id = document.getElementById("search-id").value;
