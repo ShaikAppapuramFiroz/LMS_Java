@@ -26,12 +26,12 @@ public class User {
 
     private String role; // ROLE_USER, ROLE_ADMIN
 
-    // ✅ Keep this method inside the class
-    public UserDetails buildUserDetails() {
+    // ✅ Custom method to convert to Spring Security UserDetails
+    public UserDetails toUserDetails() {
         return org.springframework.security.core.userdetails.User.builder()
                 .username(this.email)
                 .password(this.password)
-                .roles(this.role)
+                .roles(this.role) // ROLE_USER, ROLE_ADMIN
                 .build();
     }
 }
