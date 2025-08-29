@@ -26,12 +26,12 @@ public class User {
 
     private String role; // ROLE_USER, ROLE_ADMIN
 
-    // ✅ Keep this inside the class
+    // ✅ Keep this method inside the class
     public UserDetails buildUserDetails() {
         return org.springframework.security.core.userdetails.User.builder()
-                .username(this.email) // using email as login username
+                .username(this.email)
                 .password(this.password)
-                .roles(this.role) // ROLE_USER, ROLE_ADMIN
+                .roles(this.role)
                 .build();
     }
 }
