@@ -2,6 +2,7 @@ package com.nec.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.springframework.security.core.userdetails.UserDetails;
 
 @Entity
 @Table(name = "users")
@@ -24,13 +25,13 @@ public class User {
     private String password;
 
     private String role; // ROLE_USER, ROLE_ADMIN
-}
-// Inside User.java
-public UserDetails buildUserDetails() {
-    return org.springframework.security.core.userdetails.User.builder()
-            .username(this.email)
-            .password(this.password)
-            .roles(this.role)
-            .build();
-}
 
+    // ✅ Keep this inside the class
+    public UserDetails buildUserDetails() {
+        return org.springframework.security.core.userdetails.User.builder()
+                .username(this.email) // using email as login username
+                .password(this.password)
+                .roles(this.role) // ROLE_USER, ROLE_ADMIN
+                .build();
+    }
+}
