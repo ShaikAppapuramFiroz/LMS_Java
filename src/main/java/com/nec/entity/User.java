@@ -25,3 +25,12 @@ public class User {
 
     private String role; // ROLE_USER, ROLE_ADMIN
 }
+// Inside User.java
+public UserDetails buildUserDetails() {
+    return org.springframework.security.core.userdetails.User.builder()
+            .username(this.email)
+            .password(this.password)
+            .roles(this.role)
+            .build();
+}
+
